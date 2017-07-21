@@ -1,0 +1,23 @@
+
+use transport;
+
+show tables;
+select * from student;
+create table staff(sno int(11) auto_increment primary key,name varchar(40),staffId varchar(20) unique not null,department varchar(20),boardingpoint varchar(20));
+desc student;
+drop table staff;
+create table student(sno int(11) auto_increment primary key, name varchar(50),registerno varchar(50) unique not null,department varchar(20),batch varchar(20),boardingpoint varchar(80));
+alter table boardingpoint add column total varchar(10) default '0';
+create table combine_route(sno int(3) auto_increment primary key,route_no varchar(30) not null);
+create table fuel (sno int primary key auto_increment,vechile_no varchar(20) not null,kilometer int not null,liters int not null,date date not null,amount int not null,vechile_type varchar(30) not null);
+create table batch (batch varchar(10));
+
+
+
+create table vechile(sno int(11) auto_increment primary key,vechile_no varchar(20) ,vechile_type varchar(10) not null,fc_date date,fc_amount varchar(20),insurence_date date ,insurence_amount varchar(20) ,roadtax_date date ,roadtax_amount varchar(20),permit_date date ,permit_amount varchar(20) );
+Alter table vechile add (fc_date date,fc_amount varchar(20)); 
+ alter table vechile add column (status_fc varchar(20) default 'false',status_roadtax varchar(20) default 'false',status_permit varchar(20) default 'false',status_insurence varchar(20) default 'false');
+alter table vechile add column insurence_date date not null,insurence_amount varchar(20) not null,roadtax_date date not null,roadtax_amount varchar(20) not null,permit_date date not null,permit_amount varchar(20) not null;
+create table maintenance(sno int(100) auto_increment primary key,vechile_no varchar(20) not null,vechile_type varchar(20)not null,date date not null,amount varchar(20) not null,reason varchar(100) not null);
+
+create table vechile_detials (sno int(11) auto_increment primary key,vechile_no varchar(20) not null,vechile_type varchar(20) not null);
